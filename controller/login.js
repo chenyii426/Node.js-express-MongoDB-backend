@@ -9,7 +9,7 @@ var User = require("../models/user");
 
 router.post('/register', function(req, res) {
   if (!req.body.username || !req.body.password || !req.body.firstname 
-  || !req.body.lastname || !req.body.email || !req.body.position || !req.body.unit) {
+  || !req.body.lastname) {
     res.json({success: false, msg: 'Failure due to missing required field(s)'});
   } else {
     var newUser = new User({

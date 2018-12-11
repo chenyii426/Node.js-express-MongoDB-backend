@@ -8,14 +8,17 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var config = require('./config/database');
+var cors = require('cors')
 
 mongoose.connect(config.database);
 
 var login = require('./controller/login');
 var program = require('./controller/program');
 var event = require('./controller/event');
+var user = require('./controller/user')
 
 var app = express();
+app.use(cors())
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +47,7 @@ app.get('/', function(req, res) {
 app.use('/api', login);
 app.use('/api', program);
 app.use('/api', event);
+app.use('/api',user)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

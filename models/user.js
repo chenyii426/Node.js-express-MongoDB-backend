@@ -5,17 +5,17 @@ var bcrypt = require('bcrypt-nodejs');
 var UserSchema = new Schema({
     firstname: {
         type: String,
-        require:true
+        require:false
     },
     lastname: {
         type: String,
-        required:true
+        required:false
     },
     position: {
         type: String,
         enum: ['faculty', 'staff', 'student'],
         default: 'student',
-        required: true
+        required: false
     },
     username: {
         type: String,
@@ -27,7 +27,7 @@ var UserSchema = new Schema({
     },
     email: {
         type: String,
-        required:true
+        required:false
     },
     title: {
         type: String,
@@ -35,13 +35,13 @@ var UserSchema = new Schema({
     },
     unit: {
         type: String,
-        required:true
+        required:false
     },
     role:{
         type: String,
         required: true,
-        enum: ['admin', 'student', 'recruiter'],
-        default: 'student'
+        enum: ['admin','regular'],
+        default: 'regular'
     },
     events:[{
         type: Schema.Types.ObjectId,

@@ -111,6 +111,8 @@ async function insertData() {
   event = await event.save();
   console.log(event+"\n");
 
+  await Program.collection.dropIndexes({});
+
   await Program.deleteMany({
   });
 
@@ -121,7 +123,7 @@ async function insertData() {
   console.log(program+"\n");
 
   program = new Program({
-    name:"Second Program" 
+    name:"Second Program"
   });
   program = await program.save()
   console.log(program+"\n");
