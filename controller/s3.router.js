@@ -5,10 +5,10 @@ let upload = require('../config/multer.config.js');
 
 const awsWorker = require('./s3.controller.js');
  
-router.post('/files/upload', upload.single("file"), awsWorker.doUpload);
+router.post('/api/files/upload', upload.single("file"), awsWorker.doUpload);
 
-router.get('/files/all', awsWorker.listKeyNames);
+router.get('/api/files/all', awsWorker.listKeyNames);
 
-router.get('/files/:filename', awsWorker.doDownload);
+router.get('/api/files/:filename', awsWorker.doDownload);
  
 module.exports = router;

@@ -16,10 +16,12 @@ var login = require('./controller/login');
 var program = require('./controller/program');
 var event = require('./controller/event');
 var user = require('./controller/user')
-var s3 = require('./controller/s3')
+let s3 = require('./controller/s3.router.js');
+
 
 var app = express();
 app.use(cors())
+app.use('/', s3);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
