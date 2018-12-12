@@ -16,6 +16,7 @@ var login = require('./controller/login');
 var program = require('./controller/program');
 var event = require('./controller/event');
 var user = require('./controller/user')
+var s3 = require('./controller/s3')
 
 var app = express();
 app.use(cors())
@@ -48,6 +49,7 @@ app.use('/api', login);
 app.use('/api', program);
 app.use('/api', event);
 app.use('/api',user)
+app.use('/api',s3);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
